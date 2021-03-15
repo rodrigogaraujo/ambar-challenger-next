@@ -10,7 +10,7 @@ https://brave-wright-b26202.netlify.app/
 - yarn //install all dependencies
 
 # Run
-- yarn start
+- yarn dev
 
 # Libraries & Features
 - NextJs
