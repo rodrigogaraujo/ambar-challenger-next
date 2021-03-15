@@ -5,12 +5,9 @@ Front end of the AmbarChallenger with NextJS
 https://api.openweathermap.org/data/2.5/weather
 
 # .env.local
-// OpenWeather key example
 
 NEXT_PUBLIC_API_URL=https://api.openweathermap.org/data/2.5/weather
 NEXT_PUBLIC_OPEN_WEATHER_KEY=
-
-// Firebase project example
 
 NEXT_PUBLIC_FIREBASE_API_KEY=
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
