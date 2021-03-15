@@ -1,9 +1,6 @@
 # ambar-challenger
 Front end of the AmbarChallenger with NextJS
 
-# Live preview
-https://brave-wright-b26202.netlify.app/
-
 # Install
 - Visual Studio
 - git clone https://github.com/rodrigogaraujo/ambar-challenger.git
