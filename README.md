@@ -7,7 +7,8 @@ https://brave-wright-b26202.netlify.app/
 # API for request
 https://api.openweathermap.org/data/2.5/weather
 
-# .env.local insert the open weather api and the anothers like .env.loca.example
+# .env.local 
+Insert the open weather api and the anothers like .env.loca.example
 NEXT_PUBLIC_API_URL=https://api.openweathermap.org/data/2.5/weather
 
 # Install
