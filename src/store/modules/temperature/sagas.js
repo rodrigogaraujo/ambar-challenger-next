@@ -32,7 +32,46 @@ export function* loadTemperature({ payload }) {
           date: new Date(),
         });
       });
-    yield put(temperatureSuccess(obj));
+    const tempMax = localStorage.getItem("@challengerAmbar:tempMax");
+    const tempMin = localStorage.getItem("@challengerAmbar:tempMin");
+
+    const objMax = {
+      city: obj.city,
+      value: obj.temp_max,
+    };
+    const objMin = {
+      city: obj.city,
+      value: obj.temp_min,
+    };
+    let cityMax = {};
+    let cityMin = {};
+    if (tempMax && tempMin) {
+      if (obj.temp_max > parseFloat(JSON.parse(tempMax).value)) {
+        localStorage.setItem(
+          "@challengerAmbar:tempMax",
+          JSON.stringify(objMax)
+        );
+        cityMax = objMax;
+      } else {
+        cityMax = JSON.parse(tempMax);
+      }
+      if (obj.temp_min < parseFloat(JSON.parse(tempMin).value)) {
+        localStorage.setItem(
+          "@challengerAmbar:tempMin",
+          JSON.stringify(objMin)
+        );
+        cityMin = objMin;
+      } else {
+        cityMin = JSON.parse(tempMin);
+      }
+    } else {
+      localStorage.setItem("@challengerAmbar:tempMax", JSON.stringify(objMax));
+      cityMax = JSON.parse(tempMax);
+
+      localStorage.setItem("@challengerAmbar:tempMin", JSON.stringify(objMin));
+      cityMin = JSON.parse(tempMin);
+    }
+    yield put(temperatureSuccess({ cityMin, cityMax, ...obj }));
   } catch (error) {
     yield put(temperatureFailure());
     toast.error("Erro ao carregar os dados!");
