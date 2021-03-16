@@ -11,13 +11,56 @@ const MOCK_RESPONSE = {
   temp: 302.15,
   temp_max: 302.15,
   temp_min: 302.15,
+  cityMax: {
+    city: "Teresina",
+    value: 302.15,
+  },
+  cityMin: {
+    city: "Teresina",
+    value: 302.15,
+  },
 };
+const tempMax = localStorage.getItem("@challengerAmbar:tempMax");
+const tempMin = localStorage.getItem("@challengerAmbar:tempMin");
+
+const objMax = {
+  city: MOCK_RESPONSE.city,
+  value: MOCK_RESPONSE.temp_max,
+};
+const objMin = {
+  city: MOCK_RESPONSE.city,
+  value: MOCK_RESPONSE.temp_min,
+};
+let cityMax = {};
+let cityMin = {};
+if (tempMax && tempMin) {
+  if (MOCK_RESPONSE.temp_max > parseFloat(JSON.parse(tempMax).value)) {
+    localStorage.setItem("@challengerAmbar:tempMax", JSON.stringify(objMax));
+    cityMax = objMax;
+  } else {
+    cityMax = JSON.parse(tempMax);
+  }
+  if (MOCK_RESPONSE.temp_min < parseFloat(JSON.parse(tempMin).value)) {
+    localStorage.setItem("@challengerAmbar:tempMin", JSON.stringify(objMin));
+    cityMin = objMin;
+  } else {
+    cityMin = JSON.parse(tempMin);
+  }
+} else {
+  localStorage.setItem("@challengerAmbar:tempMax", JSON.stringify(objMax));
+  cityMax = JSON.parse(tempMax);
+
+  localStorage.setItem("@challengerAmbar:tempMin", JSON.stringify(objMin));
+  cityMin = JSON.parse(tempMin);
+}
 
 const RESPONSE_API = {
   data: {
     name: "Teresina",
     main: { temp: 302.15, temp_min: 302.15, temp_max: 302.15 },
     weather: [{ icon: "02n", description: "céu pouco nublado" }],
+    cityMin,
+    cityMax,
   },
 };
 
@@ -38,6 +81,8 @@ describe("test loadTemperature", () => {
     expect(result).toEqual(
       put(
         temperatureSuccess({
+          cityMin,
+          cityMax,
           ...MOCK_RESPONSE,
         })
       )
