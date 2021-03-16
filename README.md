@@ -16,7 +16,7 @@ NEXT_PUBLIC_API_URL=https://api.openweathermap.org/data/2.5/weather
 - git clone https://github.com/rodrigogaraujo/ambar-challenger.git
 - yarn //install all dependencies
 - Create accounts - Firebase and Open Weather
-- Copy .env.loca.example and fill in your information (with open weather and firebase keys)
+- Copy .env.local.example to a file called env.local and fill in your information (with open weather and firebase keys)
 
 # Run
 - yarn dev
