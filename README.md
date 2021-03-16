@@ -37,7 +37,7 @@ NEXT_PUBLIC_API_URL=https://api.openweathermap.org/data/2.5/weather
 <img src="https://github.com/rodrigogaraujo/ambar-challenger/blob/main/Screenshot%20from%202021-03-14%2019-05-13.png" width="450"/>
 
 # Tests
-- yarn test
+- yarn test --watchAll
 
 # Contact
 rodrigoaraujo990@gmail.com
