@@ -30,10 +30,18 @@ describe("test loadTemperature", () => {
         `${process.env.NEXT_PUBLIC_API_URL}?q=Teresina&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_KEY}&lang=pt`
       )
     );
-    return RESPONSE_API;
+    return {
+      ...RESPONSE_API,
+    };
   });
   it("should be able to put the action to update reducer after save in firebase", (result) => {
-    expect(result).toEqual(put(temperatureSuccess(MOCK_RESPONSE)));
+    expect(result).toEqual(
+      put(
+        temperatureSuccess({
+          ...MOCK_RESPONSE,
+        })
+      )
+    );
   });
 
   it("all tests are ok", (result) => {

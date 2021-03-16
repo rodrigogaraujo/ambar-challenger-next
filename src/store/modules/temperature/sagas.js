@@ -10,7 +10,7 @@ export function* loadTemperature({ payload }) {
     const { city } = payload;
     const resp = yield call(
       axios.get,
-      `${process.env.NEXT_PUBLIC_API_URL}?q=${city}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_KEY}&lang=pt`
+      `${process.env.REACT_APP_API_URL}?q=${city}&appid=${process.env.REACT_APP_OPEN_WEATHER_KEY}&lang=pt`
     );
     const obj = {
       city: resp.data.name,
@@ -32,46 +32,7 @@ export function* loadTemperature({ payload }) {
           date: new Date(),
         });
       });
-    const tempMax = localStorage.getItem("@challengerAmbar:tempMax");
-    const tempMin = localStorage.getItem("@challengerAmbar:tempMin");
-
-    const objMax = {
-      city: obj.city,
-      value: obj.temp_max,
-    };
-    const objMin = {
-      city: obj.city,
-      value: obj.temp_min,
-    };
-    let cityMax = {};
-    let cityMin = {};
-    if (tempMax && tempMin) {
-      if (obj.temp_max > parseFloat(JSON.parse(tempMax).value)) {
-        localStorage.setItem(
-          "@challengerAmbar:tempMax",
-          JSON.stringify(objMax)
-        );
-        cityMax = objMax;
-      } else {
-        cityMax = JSON.parse(tempMax);
-      }
-      if (obj.temp_min < parseFloat(JSON.parse(tempMin).value)) {
-        localStorage.setItem(
-          "@challengerAmbar:tempMin",
-          JSON.stringify(objMin)
-        );
-        cityMin = objMin;
-      } else {
-        cityMin = JSON.parse(tempMin);
-      }
-    } else {
-      localStorage.setItem("@challengerAmbar:tempMax", JSON.stringify(objMax));
-      cityMax = JSON.parse(tempMax);
-
-      localStorage.setItem("@challengerAmbar:tempMin", JSON.stringify(objMin));
-      cityMin = JSON.parse(tempMin);
-    }
-    yield put(temperatureSuccess({ cityMin, cityMax, ...obj }));
+    yield put(temperatureSuccess(obj));
   } catch (error) {
     yield put(temperatureFailure());
     toast.error("Erro ao carregar os dados!");
