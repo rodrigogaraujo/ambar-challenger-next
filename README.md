@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ambar-challenger
+Front end of the AmbarChallenger with NextJS
 
-## Getting Started
+# Live preview
+https://brave-wright-b26202.netlify.app/
 
-First, run the development server:
+# API for request
+https://api.openweathermap.org/data/2.5/weather
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# .env.local 
+Insert the open weather api and the anothers like .env.loca.example
+NEXT_PUBLIC_API_URL=https://api.openweathermap.org/data/2.5/weather
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Install
+- Visual Studio
+- git clone https://github.com/rodrigogaraujo/ambar-challenger.git
+- yarn //install all dependencies
+- Create accounts - Firebase and Open Weather
+- Copy .env.local.example to a file called env.local and fill in your information (with open weather and firebase keys)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Run
+- yarn dev
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# Libraries & Features
+- NextJs
+- Styled components
+- Firebase
+- Redux saga
+- Redux saga testing
+- React icons
+- React toastify
+- Antd
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Preview
+<img src="https://github.com/rodrigogaraujo/ambar-challenger/blob/main/Screenshot%20from%202021-03-14%2019-05-01.png" width="450"/>
+<img src="https://github.com/rodrigogaraujo/ambar-challenger/blob/main/Screenshot%20from%202021-03-14%2019-05-09.png" width="450"/>
+<img src="https://github.com/rodrigogaraujo/ambar-challenger/blob/main/Screenshot%20from%202021-03-14%2019-05-13.png" width="450"/>
 
-## Learn More
+# Tests
+- yarn test
 
-To learn more about Next.js, take a look at the following resources:
+# Contact
+rodrigoaraujo990@gmail.com
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# License
+Copyright 2018 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
